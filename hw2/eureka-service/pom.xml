@@ -63,7 +63,6 @@
                 <version>${spring-boot.version}</version>
                 <configuration>
                     <mainClass>io.daocloud.eurekaservice.EurekaServiceApplication</mainClass>
-                    <skip>true</skip>
                 </configuration>
                 <executions>
                     <execution>
