@@ -75,6 +75,7 @@
                 </executions>
             </plugin>
         </plugins>
+        <finalName>eureka-service</finalName>
     </build>
 
 </project>
