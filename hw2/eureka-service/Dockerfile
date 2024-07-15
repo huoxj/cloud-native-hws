@@ -14,6 +14,7 @@ RUN --mount=type=cache,target=/root/.m2,id=maven-cache mvn -B -Dmaven.test.skip 
 FROM eclipse-temurin:8u372-b07-jre-centos7 AS deploy-stage
 
 ENV PROJECT_NAME eureka-service
+ENV WORK_PATH /usr/src/$PROJECT_NAME
 ENV WORK_PATH2 /app
 
 WORKDIR $WORK_PATH2
