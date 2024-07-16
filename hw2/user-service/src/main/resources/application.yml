@@ -2,7 +2,7 @@ spring:
   application:
     name: user-service
   datasource:
-    url: jdbc:mysql://localhost:3306/user?charset=utf8mb4&useSSL=false&serverTimezone=Asia/Shanghai
+    url: jdbc:${DB_URL:mysql://mysql:3306}/user?charset=utf8mb4&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -16,7 +16,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
   instance:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${random.int(10000,65536)}

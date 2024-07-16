@@ -5,7 +5,7 @@ metadata:
   labels:
     app: user-service
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: user-service
@@ -22,6 +22,8 @@ spec:
           env:
             - name: EUREKA_URL
               value: http://eureka:8761/eureka
+            - name: DB_URL
+              value: mysql://mysql:3306
           ports:
             - containerPort: 8080
           resources:
