@@ -23,7 +23,7 @@ spec:
             - name: EUREKA_URL
               value: http://eureka-service:8761/eureka
           ports:
-            - containerPort: 8080
+            - containerPort: 8081
           resources:
             requests:
               cpu: 1
@@ -41,7 +41,7 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - port: 9090
-      targetPort: 9090
+    - port: 8081
+      targetPort: 8081
   selector:
     app: admin-service
