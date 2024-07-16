@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: admin-service
+  labels:
+    app: admin-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: admin-service
+  template:
+    metadata:
+      labels:
+        app: admin-service
+    spec:
+      hostname: admin-service
+      containers:
+        - name: admin-service
+          image: admin-service:2024
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: EUREKA_URL
+              value: http://eureka:8761/eureka
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: 1
+              memory: 512Mi
+            limits:
+              cpu: 1
+              memory: 512Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: admin-service
+  labels:
+    app: admin-service
+spec:
+  type: NodePort
+  ports:
+    - port: 9090
+      targetPort: 9090
+  selector:
+    app: admin-service
