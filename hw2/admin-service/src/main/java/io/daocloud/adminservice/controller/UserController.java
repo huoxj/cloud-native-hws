@@ -11,12 +11,14 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    // 增加用户api
     @PostMapping("/user")
     @ResponseBody
     public Object add(@RequestBody UserVO userVO) {
         return userService.add(userVO);
     }
 
+    // 负载均衡测试api
     @GetMapping("/port")
     @ResponseBody
     public String port() {
